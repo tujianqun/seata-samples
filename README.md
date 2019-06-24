@@ -5,7 +5,7 @@
 
 Samples for Seata. This project contains several sub-projects, each of which is an example of integration with other projects.
 
-官方demo，但是springcloud-eureka-seata不能使用，结合自己的立即添加代码，现在已经可以正确运行
+官方demo，但是springcloud-eureka-seata不能使用，结合自己的理解添加代码，现在已经可以正确运行
 
 [![Build Status](https://travis-ci.org/seata/seata-samples.svg?branch=master)](https://travis-ci.org/seata/seata-samples) 
 ![license](https://img.shields.io/github/license/seata/seata-samples.svg)
