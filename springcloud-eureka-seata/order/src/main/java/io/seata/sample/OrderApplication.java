@@ -4,7 +4,10 @@ import javax.sql.DataSource;
 
 import com.alibaba.druid.pool.DruidDataSource;
 
+import com.seata.FeginInterceptor;
+import com.seata.FescarXidFilter;
 import io.seata.rm.datasource.DataSourceProxy;
+import io.seata.spring.annotation.GlobalTransactionScanner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -25,6 +28,23 @@ public class OrderApplication {
     public static void main(String[] args) {
         SpringApplication.run(OrderApplication.class, args);
     }
+
+    @Bean
+    public FescarXidFilter fescarXidFilter(){
+        return new FescarXidFilter();
+    }
+
+    @Bean
+    public GlobalTransactionScanner scanner(){
+        GlobalTransactionScanner scanner = new GlobalTransactionScanner("fescar-test","my_test_tx_group");
+        return scanner;
+    }
+
+    @Bean
+    public FeginInterceptor feginInterceptor(){
+        return new FeginInterceptor();
+    }
+
 
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
